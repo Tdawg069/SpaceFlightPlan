@@ -1,5 +1,6 @@
 # SpaceFlightPlan
-A console app that generates a flight plan for colonising the most amount of weighted planets within a fixed time frame. Planets are randomly generated.
+A console app that generates a flight plan for colonising the most amount of weighted planets within a fixed time frame. Planets are randomly generated.<br/>
+The original assessment question is located in root directory of the repo.
 
 The following assumptions/simplifications have been made due to time constraints and practicality:
 - The decimal points in the coordinate system have been removed.
@@ -13,36 +14,36 @@ The following assumptions/simplifications have been made due to time constraints
 - My understanding of the travel time concept is as follows:
 
 Key:
+```
 M - Monster
 H - Habitable Planet
 I - Inhabitable Planet
 C - Colonized Planet
 Y - Your current position
+```
 
-M-Y--H
+`M-Y--H`<br/>
 H is further away from you than M, therefore it will take 20min to travel there (as it is the second-closest). This will hold true irrespective of the direction they are in. In this case, they are on opposite ends.
 
-I-M-Y----H
+`I-M-Y----H`<br/>
 The same applies for Inhabitable planets. H is the 3rd closest planet, and thus 30min away. I is 20min and M is 10min.
 
-I-M-Y--C-H
+`I-M-Y--C-H`<br/>
 The same would apply for previously colonized planets. Like above, they would also add 10min travel time to H (thus H is now 40min away).
 
 Once you move to a new planet, distances (and thus travel time) get recalculated.
 
 
 ## Usage
-
-`Starship.exe -generate "universe_file_path"`
-OR
-`Starship.exe -plan "universe_file_path" "flight_plan_file_path"`
-OR
-`Starship.exe`
-
+```
+Starship.exe -generate "universe_file_path"
+Starship.exe -plan "universe_file_path" "flight_plan_file_path"
+Starship.exe
+```
 If any of the file paths are not passed in (or the program is run without arguments), the default file paths will be used:
-project_root\Universe.txt and
-project_root\FlightPlan.txt
+`project_root\Universe.txt` and <br/>
+`project_root\FlightPlan.txt`
 
-`-generate` option triggers universe generation and saving to file only.
-`-plan`     option triggers loading universe from file, creating flight plan and saving flight plan to file only.
-No option runs both of these, but with default file paths only.
+`-generate` option triggers universe generation and saving to file only.<br/>
+`-plan`     option triggers loading universe from file, creating flight plan and saving flight plan to file only.<br/>
+No option runs both in succession, but with default file paths only.
